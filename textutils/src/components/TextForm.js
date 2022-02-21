@@ -19,7 +19,7 @@ export default function TextForm(props) {
     }
     //fun to convert to Capital case
     const handleCapitalClick = () => {
-        console.log("Upercase was clicked : " + text);
+        console.log("Capilatize was clicked : " + text);
         let newText = text.charAt(0).toUpperCase() + text.slice(1);
         setText(newText)
     }
@@ -29,10 +29,22 @@ export default function TextForm(props) {
         let newText = '';
         setText(newText)
     }
+    //copy text
+    const handleCopy = () => {
+        console.log('copy to clipboard');
+        let text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    //handle extra space
+    const handleExtraSpace = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" ")) 
+    }
 
     const handleOnChange = (event) => {
         console.log("On change");
-        setText(event.target.value)
+        setText(event.target.value);
     }
 
     return (
@@ -45,6 +57,8 @@ export default function TextForm(props) {
                 <button className='btn btn-primary mx-1' onClick={handleUpClick} >Uppercase</button>
                 <button className='btn btn-primary mx-1' onClick={handleLowClick}>Lowercase</button>
                 <button className='btn btn-primary mx-1' onClick={handleCapitalClick}>Capitalize</button>
+                <button className='btn btn-primary mx-1' onClick={handleCopy}>Copy Text</button>
+                <button className='btn btn-primary mx-1' onClick={handleExtraSpace}>Remove Extra Space</button>
                 <button className='btn btn-danger mx-1' onClick={handleClearClick}>Clear</button>
             </div>
             <div className="container my-3">
