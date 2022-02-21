@@ -13,8 +13,20 @@ const [text, setText] = useState("")
     }  
     //fun to convert to lower case
     const handleLowClick = () => {
-        console.log("Upercase was clicked : " + text );
+        console.log("LowerCase was clicked : " + text );
         let newText = text.toLowerCase();
+        setText(newText)
+    }  
+    //fun to convert to Capital case
+    const handleCapitalClick = () => {
+        console.log("Upercase was clicked : " + text );
+        let newText = text.charAt(0).toUpperCase() + text.slice(1);
+        setText(newText)
+    }  
+    //fun to clear text
+    const handleClearClick = () => {
+        console.log("Claer text was clicked : " + text );
+        let newText = '';
         setText(newText)
     }  
 
@@ -32,6 +44,8 @@ const [text, setText] = useState("")
     </div>
     <button className='btn btn-primary mx-1' onClick={handleUpClick} >Uppercase</button>
     <button className='btn btn-primary mx-1' onClick={handleLowClick}>Lowercase</button>
+    <button className='btn btn-primary mx-1' onClick={handleCapitalClick}>Capitalize</button>
+    <button className='btn btn-danger mx-1' onClick={handleClearClick}>Clear</button>
    </div>
    <div className="container my-3">
        <h2>Your text summary:</h2>
