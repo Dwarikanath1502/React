@@ -1,15 +1,15 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import { useState } from 'react';
 import Alert from './components/Alert';
-import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import About from './components/About';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 function App() {
 
@@ -35,25 +35,34 @@ function App() {
 
     }
   }
-  return (
+  // return (
+  //   <>
+  //     <Router>
+
+  //       {/* < Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} /> */}
+  //       <Alert alert={alert} />
+  //       <div className='container my-3'>
+  //         <Routes>
+  //           <Route exact path="/about" element={<About />}>
+  //             {/* <About /> */}
+  //           </Route>
+  //           <Route exact path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} />}>
+  //             {/* <TextForm heading="Enter the text to analyze" mode={mode} /> */}
+  //           </Route>
+  //         </Routes>
+  //       </div>
+  //     </Router>
+  //   </>
+
+  // );
+  return(
     <>
-      <Router>
-
-        < Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-        <Alert alert={alert} />
-        <div className='container my-3'>
-          <Routes>
-            <Route exact path="/about" element={<About />}>
-              {/* <About /> */}
-            </Route>
-            <Route exact path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} />}>
-              {/* <TextForm heading="Enter the text to analyze" mode={mode} /> */}
-            </Route>
-          </Routes>
-        </div>
-      </Router>
+      <Navbar title='TextUtils' mode ={mode} toggleMode={toggleMode}/>
+      <Alert alert = {alert}/>
+      <div className="container my-3">
+        <TextForm showAlert={showAlert} heading = "Enter the text to analyze" mode = {mode}/>
+      </div>
     </>
-
   );
 }
 
